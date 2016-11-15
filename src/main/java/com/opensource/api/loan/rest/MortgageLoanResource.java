@@ -6,6 +6,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
@@ -28,6 +29,13 @@ public class MortgageLoanResource {
         LoanResponse loanResponse = service.determineEligibility(loanRequest);
         return loanResponse;
         
+    }
+    
+    @Path("health")
+    @GET
+    public Response health()
+    {
+        return Response.ok().build();
     }
 }
 
