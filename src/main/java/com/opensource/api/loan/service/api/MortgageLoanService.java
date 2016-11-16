@@ -5,6 +5,7 @@ import com.opensource.api.loan.model.LoanResponse;
 
 public interface MortgageLoanService {
     public LoanResponse determineEligibility(LoanRequest request);
+    public LoanResponse getEligibility(LoanRequest request);
 }
 
 

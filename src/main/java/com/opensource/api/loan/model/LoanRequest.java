@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.ws.rs.QueryParam;
 
-import org.springframework.stereotype.Component;
-
 public class LoanRequest implements Serializable{
 
     /**

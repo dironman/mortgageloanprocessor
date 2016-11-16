@@ -4,6 +4,7 @@ import com.opensource.api.loan.model.CreditReportResponse;
 import com.opensource.api.loan.model.LoanRequest;
 
 public interface CreditReportDao {
+    public CreditReportResponse fetchCreditReport(LoanRequest loanRequest);
     public CreditReportResponse getCreditReport(LoanRequest loanRequest);
 }
 

@@ -3,6 +3,8 @@ package com.opensource.api.loan.service.impl;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import com.opensource.api.loan.model.CreditReportResponse;
 import com.opensource.api.loan.model.LoanRateResponse;
 import com.opensource.api.loan.model.LoanRequest;
@@ -19,6 +21,9 @@ public class MortgageLoanServiceImpl implements MortgageLoanService{
     
     @Inject
     private CreditReportDao creditReportDao;
+    
+    @Value("${eligibility.min.score}")
+    private int minimumEligibilityScore;
     
     @Override
     public LoanResponse determineEligibility(LoanRequest loanRequest) {
@@ -38,6 +43,18 @@ public class MortgageLoanServiceImpl implements MortgageLoanService{
         {
             throw e;
         }
+        return loanResponse;
+    }
+
+    @Override
+    public LoanResponse getEligibility(LoanRequest request) {
+        CreditReportResponse creditReportResponse = creditReportDao.fetchCreditReport(request);
+        final LoanResponse loanResponse = new LoanResponse();
+        if(creditReportResponse.getFicoScore() > minimumEligibilityScore)
+            loanResponse.setEligible(true);
+        else
+            loanResponse.setEligible(false);
+        loanResponse.setFicoScore(creditReportResponse.getFicoScore());
         return loanResponse;
     }
 

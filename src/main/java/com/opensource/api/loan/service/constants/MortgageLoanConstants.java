@@ -13,6 +13,14 @@ public class MortgageLoanConstants {
     public static final String CREDITREPORT_QP_DATEOFBIRTH_NAME="dateOfBirth";
     public static final String CREDITREPORT_QP_SSN_NAME="SSN";
     
+    public static final String CREDITREPORT_DB_COL_FIRSTNAME="first_name";
+    public static final String CREDITREPORT_DB_COL_MIDDLENAME="middle_name";
+    public static final String CREDITREPORT_DB_COL_LASTNAME="last_name";
+    public static final String CREDITREPORT_DB_COL_DATEOFBIRTH="date_of_birth";
+    public static final String CREDITREPORT_DB_COL_SSN="social_security_number";
+    public static final String CREDITREPORT_DB_COL_FICOSCORE="fico_score";
+    public static final String CREDITREPORT_DB_COL_ISPAYMENTDEFAULTER="is_payment_defaulter";
+    
 }
 
 

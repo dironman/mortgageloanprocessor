@@ -26,7 +26,8 @@ public class MortgageLoanResource {
     public LoanResponse getEligibilityDetails(
             @BeanParam LoanRequest loanRequest)
     {
-        LoanResponse loanResponse = service.determineEligibility(loanRequest);
+//        LoanResponse loanResponse = service.determineEligibility(loanRequest);
+        LoanResponse loanResponse = service.getEligibility(loanRequest);
         return loanResponse;
         
     }
